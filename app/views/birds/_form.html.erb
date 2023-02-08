@@ -1,0 +1,22 @@
+<%= form_with(model: bird) do |form| %>
+  <% if bird.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(bird.errors.count, "error") %> prohibited this bird from being saved:</h2>
+
+      <ul>
+        <% bird.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :node_id, style: "display: block" %>
+    <%= form.number_field :node_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
